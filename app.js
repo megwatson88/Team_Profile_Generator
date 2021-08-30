@@ -3,49 +3,48 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const { title } = require('process');
 // varables to store 
-const Engineer = require()
-const Intern = require()
-const Manager = require()
+//const Engineer = require()
+//const Intern = require()
+//const Manager = require()
 
-const employees = [];
+const employees = []
 //function to run node faster
-function initApp(){
-    startHtml();
-    addMember();
-};
+// function initApp(){
+//     startHtml();
+//     addMember();
+// };
 // a function to get the data to populate
 function addEmployees(){
     inquirer
     .prompt ({
         type: 'input',
-        message: `Enter team member's name`,
-        name: `name`,
-    
+        message: 'Enter team member`s name',
+        name: 'name'
     },
     {
         type: 'list',
-        message: `select team member's role`,
+        message: 'select team member`s role',
         name: 'title',
         choices:[
             'Engineer',
             'Intern',
             'Manager'
-        ],
+        ]
     },
     {
         type: 'input',
-        message: `Enter team member's id`,
+        message: 'Enter team member`s id',
         name: 'idNumber'
     },
     {
         type: 'input',
-        message: `Enter team member's email address`,
+        message: 'Enter team member`s email address',
         name: 'email'
     },
     {
-        type: `list`,
+        type: 'list',
         name: 'moreEmployees',
-        message:`Would you like to add more new Employees?`,
+        message:'Would you like to add more new Employees?',
         choices:[
             `Yes`,
             `No`
@@ -53,8 +52,8 @@ function addEmployees(){
     },
     {
         type: 'input',
-        message: "What school do you attend?",
-        name: "internSchool"
+        message: 'What school do you attend?',
+        name: 'internSchool'
     },
     {
         type: 'input',
@@ -64,50 +63,10 @@ function addEmployees(){
     {
         type: 'input',
         message: 'What is your GitHub Username?',
-        name: "githubName"
+        name: 'githubName'
     }
-    .then(function(employeeInfo){
-        let newEmployee;
-        if (title === "Engineer"){
-            newEmployee = new Engineer(name, idNumber, email, title, githubName)
-        } else if (title === "Intern"){
-            newIntern = new Intern(name, idNumber, email, school, githubName)
-        } else if (title === "Manager"){
-            newManger = new Manager (name, idNumber, email, title, officeNumber)
-        }
+ )};
 
-        employees.push(newEmployee);
-        startHtml(newEmployee)
-        .then(function(){
-            if (moreEmployees === "yes"){
-                addEmployees();
-            } else {
-                makeHTML();
-            }
-        })
-    })
-)};
-
-
-//begin HTML functions 
-function beginHTML(){
-    const html = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <nav class= "navbar" style = " background-color: slateblue; color: white;" > 
-            <span class = "brandname"> Company Name </span>
-        </nav>
-        <div class = " container"> 
-            <div class="row"> </div>
-            
-        </div>
-    </body>
-    </html>`
-    }
-    fs.writeFile('')
+//fs.writeFile('');
+addEmployees()
+    
