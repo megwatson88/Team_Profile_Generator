@@ -67,6 +67,6 @@ function addEmployees(){
     }
  )};
 
-//fs.writeFile('');
-addEmployees()
+fs.writeFile();
+
     
