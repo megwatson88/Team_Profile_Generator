@@ -19,11 +19,6 @@ const outputPath = path.join(OUTPUT_DIR, "index.html");
 const employees = []
 const employeeID = [];
 
-//function to run node faster
-// function initApp() {
-//     startHtml();
-//     addMember();
-// };
 
 // a function to get the data to populate
 //start with the manager then move to other employees
@@ -58,8 +53,8 @@ function buildTeam() {
                 //idArray.push(answers.ManagerID);
                 addEmployees();
             })
-            
-    }; 
+
+    };
     //addManager();
     function addEmployees() {
         console.log(`Let's build your team!`)
@@ -114,7 +109,7 @@ function buildTeam() {
                 type: 'input',
                 message: 'If adding an engineer What is your GitHub Username?',
                 name: 'githubName'
-            }, 
+            },
             {
                 type: 'list',
                 name: 'moreEmployees',
@@ -124,14 +119,14 @@ function buildTeam() {
                     `No`
                 ]
             },
-        ])
+            ])
             .then(function (employeeInfo) {
                 let newEmployee;
                 if (employeeInfo.title === "Engineer") { //update with employeeInfo. to all the fields
                     newEmployee = new Engineer(employeeInfo.name, employeeInfo.idNumber, employeeInfo.email, employeeInfo.title, employeeInfo.githubName)
                 } else if (employeeInfo.title === "Intern") {
                     newIntern = new Intern(employeeInfo.name, employeeInfo.idNumber, employeeInfo.email, employeeInfo.school, employeeInfo.githubName)
-                } 
+                }
 
                 employees.push(newEmployee);
 
@@ -143,15 +138,14 @@ function buildTeam() {
             })
     };
     addManager();
-    //addEmployees();
 }
-    buildTeam();
-function makeHTML(){
-    let HTML = beginHTML() 
+buildTeam();
+function makeHTML() {
+    let HTML = beginHTML()
     let content = ""
-    for(let i = 0; i < employees.length; i++){
+    for (let i = 0; i < employees.length; i++) {
         console.log(employees[i])
-     content += "<div'>" + employees[i].name +  "<br>" + employees[i].title + "<br>" + employees[i].email + "</div>" 
+        content += "<div'>" + employees[i].name + "<br>" + employees[i].title + "<br>" + employees[i].email + "</div>"
 
 
     }
@@ -159,14 +153,14 @@ function makeHTML(){
     //console.log(HTML)
     fs.writeFileSync("employees.html", HTML, "utf-8")
 }
-    //write into a file called message.txt, passing in the value of the data variable. if there's an error, the cb function will throw the error; otherwise, prints 'The file has been saved!'
-    //work through the classes and test with those classes 
-    // ie when you call mangaer add the specific data into an array that cor to manager.
-    // work through classes > go through the testing > adding in the HTML though the classes 
+//write into a file called message.txt, passing in the value of the data variable. if there's an error, the cb function will throw the error; otherwise, prints 'The file has been saved!'
+//work through the classes and test with those classes 
+// ie when you call mangaer add the specific data into an array that cor to manager.
+// work through classes > go through the testing > adding in the HTML though the classes 
 
-    //begin HTML functions 
-    function beginHTML() {
-        const html = `<!DOCTYPE html>
+//begin HTML functions 
+function beginHTML() {
+    const html = `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -186,7 +180,7 @@ function makeHTML(){
         </div>
     </body>
     </html>`
-return html 
+    return html
 
-    };
+};
 
