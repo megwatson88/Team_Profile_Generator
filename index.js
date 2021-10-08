@@ -140,9 +140,6 @@ function buildTeam() {
                 } else {
                     makeHTML();
                 }
-                // startHtml(newEmployee)
-                //     .then(function () {
-                //     })
             })
     };
     addManager();
@@ -154,12 +151,12 @@ function makeHTML(){
     let content = ""
     for(let i = 0; i < employees.length; i++){
         console.log(employees[i])
-     content += "<p>" + employees[i].name + "</p>"
+     content += "<div'>" + employees[i].name +  "<br>" + employees[i].title + "<br>" + employees[i].email + "</div>" 
 
 
     }
     HTML = HTML.replace("{{body}}", content)
-    console.log(HTML)
+    //console.log(HTML)
     fs.writeFileSync("employees.html", HTML, "utf-8")
 }
     //write into a file called message.txt, passing in the value of the data variable. if there's an error, the cb function will throw the error; otherwise, prints 'The file has been saved!'
@@ -181,7 +178,7 @@ function makeHTML(){
         <nav class= "navbar" style = " background-color: slateblue; color: white;" > 
             <span class = "brandname"> Company Name </span>
         </nav>
-        <div class = " container"> 
+        <div class = "container"> 
             <div class="row">  
             {{body}}
             </div>
@@ -193,4 +190,3 @@ return html
 
     };
 
-// beginHTML()
