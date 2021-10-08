@@ -145,7 +145,7 @@ function makeHTML() {
     let content = ""
     for (let i = 0; i < employees.length; i++) {
         console.log(employees[i])
-        content += "<div'>" + employees[i].name + "<br>" + employees[i].title + "<br>" + employees[i].email + "</div>"
+        content += "<div'>" + employees[i].name + "<br>" + employees[i].title + "<br>" + "<a href = mailto: >" + employees[i].email + "</a>" + "<a href = 'https://github.com/'>" + employees[i].githubName + "</a>" + "</div>"
 
 
     }
